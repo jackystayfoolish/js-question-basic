@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div id="div1">
+            <p id="p1">激活</p>
+            <p id="p2">取消</p>
+            <p id="p3">取消</p>
+            <p id="p4">取消</p>
+        </div>
+        <div id="div2">
+            <p id="p5">取消</p>
+            <p id="p6">取消</p>
+        </div>
+
+        <script>
+            var p1=document.getElementById('p1')
+            var body=document.body
+            p1.addEventListener('click',function(e){
+                e.stopPropagation()
+                console.log('激活')
+            })
+            body.addEventListener('click',function(e){
+                console.log('取消')
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+This is a test. He is a good man.
+
+
+http://www.baidu.com/img/a.jpg
+http://www.google.com/img/b.png
+ftp://www.test.com/c.jpg
+/user/img/d.jpg
+http://www.google.com/img/e.jpg
+http://www.youku.com/img/f.jpg2
+ahttp://www.iqiyi.com/img/g.jpg
+
+
+2001/12/01
+2008-12-13
+ttt/11/10
+20000/12/12
+2018/12/122
+
+
+
+
