@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            p{
+                background: gray;
+                color:white;
+                padding:10px;
+                margin:5px;
+                border:thin solid black;
+            }
+            span{
+                background:white;
+                color:black;
+                padding:2px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="p1">
+            1111111111111111111111111111111111111
+            1111111111111111111111111111111111111
+            1111111111111111111111111111111111111
+            <span id="s1">aaaaaaaaaaaaaaaaa</span>
+            1111111111111111111111111111111111111
+            1111111111111111111111111111111111111
+            1111111111111111111111111111111111111
+        </p>
+        <script>
+            
+            var s1=document.getElementById('s1')
+            s1.addEventListener('mouseover',handleMouseEvent)
+            s1.addEventListener('mouseout',handleMouseEvent)
+            function handleMouseEvent(e){
+                if(e.type==='mouseover'){
+                    console.log('s1')
+                    e.target.style.background='red'
+                }else{
+                    e.target.style.removeProperty('color')
+                    e.target.style.removeProperty('background')
+                }
+            }
+            var p1=document.getElementById('p1')
+            p1.addEventListener('mouseover',handleDescendantEvent,true)
+            p1.addEventListener('mouseout',handleDescendantEvent,true)
+            p1.addEventListener('mouseover',handleBubbleEvent)
+            p1.addEventListener('mouseout',handleBubbleEvent)
+            function handleDescendantEvent(e){
+                if(e.type=='mouseover'&&e.eventPhase==Event.CAPTURING_PHASE){
+                    console.log('capturing')
+                    e.target.style.border="thick solid green"
+                    e.currentTarget.style.border="thick double yellow"
+                    e.stopPropagation()
+                }else if(e.type=='mouseout'&&e.eventPhase==Event.CAPTURING_PHASE){
+                    e.target.style.removeProperty('border')
+                    e.currentTarget.style.removeProperty('border')
+                }
+
+            }
+            function handleBubbleEvent(e){
+                if(e.type=='mouseover'&&e.eventPhase==Event.BUBBLING_PHASE){
+                    console.log('bubbling')
+                    e.target.style.textTransform="uppercase"
+                }else if(e.type=='mouseout'&&e.eventPhase==Event.BUBBLING_PHASE){
+                    e.target.style.textTransform="none"
+                }
+
+            }
+        </script>
+    </body>
+</html>
